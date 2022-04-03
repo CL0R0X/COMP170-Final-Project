@@ -23,10 +23,19 @@ public class gamblingHome {
     }
     It may be beneficial to have a string array for this to store the names of
      */
+    /*
+    gameSelection() {
+    create a System print of "Would you want to play: BlackJack/n , Dice /n, Roulette /n, slots"
+    assign variable to the response of the code above     
+    use a if else statement to select which game to pick/load the code for the game
+    }
+    */
 
     /*
     blackjack() {
     blackjack is, as the name implies, the card game blackjack. The user will be presented with the current sum of their
     cards, and if the sum goes past 21, they lose. If they hit
     */
+    
+    
 }
