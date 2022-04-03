@@ -32,11 +32,31 @@ public class gamblingHome {
     }
     */
 
-    /*
+   /*
     blackjack() {
     blackjack is, as the name implies, the card game blackjack. The user will be presented with the current sum of their
-    cards, and if the sum goes past 21, they lose. If they hit
+    cards, and if the sum goes past 21, they lose. If they hit 21 exactly or have a number closer to 21 then the dealer, they win.
+    Super compressed code would be something like:
+        (card values defined and stored)
+        Deal out two of these cards randomly using a new Random.
+
+        User chooses whether to draw another random card based on their current sum.
+        if (sum > 21) {
+            user loses.
+        }
+        Code above will loop until user decides to stop or 5 turns have been ran through.
+        After loop, compare with dealer's hand.
+        if (dealerHand < userhand) {
+             user wins.
+        else if (dealerHand = userHand) {
+             user and dealer draw.
+        else if (dealerHand > userHand) {
+             user loses.
+        }
+
+
     */
+}
     
     
 }
