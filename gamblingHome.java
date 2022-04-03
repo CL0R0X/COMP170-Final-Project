@@ -38,6 +38,7 @@ public class gamblingHome {
     cards, and if the sum goes past 21, they lose. If they hit 21 exactly or have a number closer to 21 then the dealer, they win.
     Super compressed code would be something like:
         (card values defined and stored)
+        Ask for user's bet out of their current balance.
         Deal out two of these cards randomly using a new Random.
 
         User chooses whether to draw another random card based on their current sum.
@@ -48,13 +49,19 @@ public class gamblingHome {
         After loop, compare with dealer's hand.
         if (dealerHand < userhand) {
              user wins.
+             Multiply bet by x amount (yet to be determined) and add it to balance)
         else if (dealerHand = userHand) {
              user and dealer draw.
         else if (dealerHand > userHand) {
              user loses.
+             Deduct bet from balance.
         }
-
-
+        Prompt user to see if they want to play again (show their new balance as well with their wins/losses.
+        if (yes) {
+            restart program.
+        else if (no) {
+            printHome();
+        }
     */
 }
     
