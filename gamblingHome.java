@@ -80,6 +80,27 @@ public class gamblingHome {
      }
     }
     */ 
+    
+    /*
+    diceGame() {
+    This game is very simple- the user will guess the number the dice rolls. Before this, the user decides how many dice they want to roll.
+    collectBet();
+    (They can only roll 1-3)
+    if (userInput = 1) {
+        diceRoll = RandomNum(1-6)
+    else if (userInput = 2) {
+        diceRoll = RandomNum(1-12)
+    else if (userInput = 3) {
+        diceRoll = RandomNum(1-18)
+    }
+    then, we check the user's input to see if it matches the diceRoll.
+    if (userGuess = diceRoll) {
+        user wins bet * (userInput + 0.5)
+    } else {
+        user loses, balance = balance - bet
+    }
+    
+    */
 }
     
     
