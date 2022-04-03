@@ -25,7 +25,7 @@ public class gamblingHome {
      */
     /*
     gameSelection() {
-    create a System print of "Would you want to play: BlackJack/n , Dice /n, Roulette /n, slots"
+    create a System print of "Would you want to play: BlackJack/n , Dice /n, Roulette /n, slots,/n  Horse Racing"
     assign variable to the response of the code above     
     use a if else statement to select which game to pick/load the code for the game
     It willl be linked with the printHome() method for producing the size of lines
@@ -100,6 +100,20 @@ public class gamblingHome {
         user loses, balance = balance - bet
     }
     
+    */
+        /* 
+    roulette(){
+    The pockets of the roulette wheel are numbered from 0 to 36. In number ranges from 1 to 10 and 19 to 28, odd numbers are red and even are black.
+    Green tiles are 0 and 36
+    allow the user to pick whether he wants to bet on tiles or tiles and number or numbers alone
+    create a function if/else to determine whether the function is odd or even 
+    if outcome odd then user is on the black tile and if user bet black tile reward is 1.5times
+    if outcome even then user is on the red tile and if user bet red tile reward is 1.5times
+    if outcome is green tile then randint lands on 0 or 36 then reward is 3times
+    if outcome is guessed both number and tile then reward is 5 times
+    if user bets on green tile and number then reward is 10 times
+    
+    }
     */
 }
     
