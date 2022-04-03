@@ -63,6 +63,23 @@ public class gamblingHome {
             printHome();
         }
     */
+    
+    /* 
+    Slots() {
+    slots game is a game where you need to match the 3 numbers for the user to get a reward
+    In order to get the 3 random numbers necessary for the slots game to function
+    you would use a randomInt value and set it to 11 = 
+    num1 =randInt(11);
+    print = user gets num1
+    num2 =randInt(11);
+    print = user gets num2
+    num3 =randInt(11);
+    print = user gets num3
+     if num1 == num2 && num2 ==num3 && num1 == num3 {
+    user gets rewards if it gets equal
+     }
+    }
+    */ 
 }
     
     
