@@ -28,6 +28,7 @@ public class gamblingHome {
     create a System print of "Would you want to play: BlackJack/n , Dice /n, Roulette /n, slots"
     assign variable to the response of the code above     
     use a if else statement to select which game to pick/load the code for the game
+    It willl be linked with the printHome() method for producing the size of lines
     }
     */
 
