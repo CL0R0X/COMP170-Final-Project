@@ -115,6 +115,32 @@ public class gamblingHome {
     
     }
     */
+    
+    /*
+    horseRace() {
+    There are a series of 5 horses(0):
+    &---------
+    0---------
+    $---------
+    
+    The first variable & in is called an num1 
+    have a random int is equal to 1 then the value moves
+    for example:
+    -&--------
+    0---------
+    $---------
+    
+    the mechanism for the horses to move is similar to:
+    int temp = num1;
+    num1 = num2;
+    num2 = temp;
+    }
+    
+    the track would last for 10 -
+    and the loop is run by a while loop
+    while( num != 1) {}
+    reward for betting on first one to come to end is 5 times
+    */
 }
     
     
