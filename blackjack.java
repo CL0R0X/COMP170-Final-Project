@@ -3,7 +3,7 @@ package com.company;
 import java.util.Random;
 import java.util.Scanner;
 
-public class gamblingApps {
+public class blackjack {
     /*
     THERE ARE A GOOD BIT OF BUGS WITH THIS SO FAR!!!!
 
@@ -78,7 +78,7 @@ public class gamblingApps {
                 brakeCheck = 0;
             }
             // Help with this, this checking section is messed up. I can explain it later.
-            while (!scan.hasNextInt() || brakeCheck == 0) { //userAnswer != "draw" || userAnswer != "stay"
+            while (brakeCheck == 0) { //userAnswer != "draw" || userAnswer != "stay"
                 System.out.print("That was an invalid input. Please answer correctly: ");
                 userAnswer = scan.nextInt();
                 //System.out.println(userAnswer);
@@ -95,8 +95,6 @@ public class gamblingApps {
                     sumOfUser += cardPullStart + 1;
                 }
                 userHand[cardCount] = cardDeck(cardPullStart);
-
-
                 System.out.println("You just pulled a " + userHand[cardCount] + "!");
                 System.out.println("You currently have a hand that is worth " + sumOfUser + ".");
 
@@ -107,7 +105,7 @@ public class gamblingApps {
         }
         // END GAME TALLY WOOOOO
         System.out.print("You have a hand of: ");
-        for (int a = 0; a < cardCount; a++) {
+        for (int a = 0; a <= cardCount - 1; a++) {
             System.out.print(userHand[a]);
             if (a !=  cardCount - 1) {
                 System.out.print(", ");
