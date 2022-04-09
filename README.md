@@ -1,2 +1,9 @@
 # COMP170-Final-Project
-Making a series of gambing games on java
+Currently Making a series Gambling games on Java
+Games:
+Horse betting
+Dice
+Roulette
+Slots
+BlackJack
+
