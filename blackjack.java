@@ -4,12 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class blackjack {
-    /*
-    THERE ARE A GOOD BIT OF BUGS WITH THIS SO FAR!!!!
-
-    However, it is functional, so I thought you'd like to see.
-     */
-
+    
 
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
