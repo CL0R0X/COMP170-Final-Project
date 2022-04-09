@@ -78,7 +78,7 @@ public class diceGame {
                 System.out.print("That is not a proper input, 1-3 please. ");
             }
             returnInput = scan.nextInt();
-            if (returnInput > 0 && returnInput < 4) {
+            if (returnInput > min && returnInput < max) {
                 brakeCheck = 1;
             }
         }
