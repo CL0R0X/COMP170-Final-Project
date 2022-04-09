@@ -31,21 +31,16 @@ public class diceGame {
 
         // I GOT THIS TO WORK
         userInput = scan.nextInt();
-        System.out.println(userInput);
         int brakeCheck = 0;
-        while (brakeCheck == 0) {
-            System.out.print("That is not a proper input, 1-3 please. ");
-            while(!scan.hasNextInt()) {
-                scan.next();
-                System.out.print("That is not a proper input, 1-3 please. ");
-            }
-            userInput = scan.nextInt();
-            if (userInput > 0 && userInput < 4) {
-                brakeCheck = 1;
-            }
+        if (userInput > 0 && userInput < 4) {
+            brakeCheck = 1;
+        }
+        if (brakeCheck == 0) {
+            userInput =  inputChecker(scan, 0, 4);
         }
 
-        System.out.println(userInput);
+
+
         // User's guess on what it lands on.
         System.out.print("What do you think it will land on? ");
         int guess = scan.nextInt();
@@ -72,4 +67,34 @@ public class diceGame {
             System.out.println("No dice!");
         }
     }
+
+    public static int inputChecker(Scanner scan, int min, int max) {
+        int brakeCheck = 0;
+        int returnInput = 0;
+        while (brakeCheck == 0) {
+            System.out.print("That is not a proper input, 1-3 please. ");
+            while(!scan.hasNextInt()) {
+                scan.next();
+                System.out.print("That is not a proper input, 1-3 please. ");
+            }
+            returnInput = scan.nextInt();
+            if (returnInput > 0 && returnInput < 4) {
+                brakeCheck = 1;
+            }
+        }
+        return returnInput;
+    }
 }
+/*
+while (brakeCheck == 0) {
+            System.out.print("That is not a proper input, 1-3 please. ");
+            while(!scan.hasNextInt()) {
+                scan.next();
+                System.out.print("That is not a proper input, 1-3 please. ");
+            }
+            userInput = scan.nextInt();
+            if (userInput > 0 && userInput < 4) {
+                brakeCheck = 1;
+            }
+        }
+ */
