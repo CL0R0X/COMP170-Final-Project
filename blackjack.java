@@ -4,7 +4,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class blackjack {
-    
 
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
@@ -15,7 +14,6 @@ public class blackjack {
         System.out.println();
         System.out.println("Lets get your hand sorted out...");
         Random rand = new Random();
-
 
         /*
 
@@ -72,14 +70,8 @@ public class blackjack {
             } else {
                 brakeCheck = 0;
             }
-            // Help with this, this checking section is messed up. I can explain it later.
-            while (brakeCheck == 0) { //userAnswer != "draw" || userAnswer != "stay"
-                System.out.print("That was an invalid input. Please answer correctly: ");
-                userAnswer = scan.nextInt();
-                //System.out.println(userAnswer);
-                if (userAnswer == 0 || userAnswer == 1) {
-                    brakeCheck = 1;
-                }
+            if (brakeCheck == 0) {
+                userAnswer = inputChecker(scan, 0, 1);
             }
             if (userAnswer == 1) {
                 int cardPullStart = rand.nextInt(13);
@@ -156,5 +148,25 @@ public class blackjack {
         //
         return cardArray[userCard];
 
+    }
+    public static int inputChecker(Scanner scan, int min, int max) {
+        System.out.println(min);
+        System.out.println(max);
+        int brakeCheck = 0;
+        int returnInput = 100000;
+        while (brakeCheck == 0) {
+            System.out.print("That is not a proper input, 0-1 please. ");
+            while(!scan.hasNextInt()) {
+                scan.next();
+                System.out.print("That is not a proper input, 0-1 please. ");
+            }
+            returnInput = scan.nextInt();
+            System.out.println(returnInput);
+            // Modified to equals so that it works with 0 and 1
+            if (returnInput == min || returnInput == max) {
+                brakeCheck = 1;
+            }
+        }
+        return returnInput;
     }
 }
