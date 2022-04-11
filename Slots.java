@@ -1,16 +1,41 @@
+package com.company;
+
 import java.util.Random;
 import java.util.Scanner;
 
 public class Slots {
 
     public static void main(String[] args) {
+        int brakeCheck = 0;
         Scanner scan = new Scanner(System.in);
         System.out.println("Welcome to Slots");
         System.out.println("Rules: \n Match 3 of the same numbers for slots of 3 \n Match 5 of the same numbers for slots of 5");
         System.out.print("Would you like to bet on a Slot machine of 3 or 5 (3/5): ");
+
+        while (!scan.hasNextInt()) {
+            scan.next();
+            System.out.println("3 or 5 please.");
+        }
         int whichSlot = scan.nextInt();
+
+        if (whichSlot == 3 || whichSlot == 5 ) {
+            brakeCheck = 1;
+        } else if (brakeCheck == 0) {
+            whichSlot = inputChecker(scan, 3, 5);
+        }
+        brakeCheck = 0;
         System.out.print("Insert 30 coins to begin playing: ");
+        while (!scan.hasNextInt()) {
+            scan.next();
+            System.out.println("That is not 30 coins.");
+        }
         int coins = scan.nextInt();
+        if (coins == 30) {
+            brakeCheck = 1;
+        } else if (brakeCheck == 0) {
+            coins = inputChecker(scan,30,91834809);
+        }
+        /*
         boolean userBet = false;
 
         if (coins == 30) {
@@ -22,7 +47,7 @@ public class Slots {
             if (coins == 30) {
                 userBet = true;
             }
-        }
+        } */
         if (whichSlot == 3) {
             rollingSlot3();
         } else if (whichSlot == 5) {
@@ -33,17 +58,16 @@ public class Slots {
 
     public static void rollingSlot5() {
         Random rand = new Random();
-        int slotNum1 = rand.nextInt(10);
-        int slotNum2 = rand.nextInt(10);
-        int slotNum3 = rand.nextInt(10);
-        int slotNum4 = rand.nextInt(10);
-        int slotNum5 = rand.nextInt(10);
-        if (slotNum1 ==slotNum2 && slotNum2 ==slotNum3 && slotNum3 ==slotNum4 && slotNum4 ==slotNum5 && slotNum5 ==slotNum1 ) {
-            System.out.println("Congradulations you won double your money");
-            System.out.println("Your numbers were " + slotNum1 +slotNum2 +slotNum3 +slotNum4 +slotNum5);
+        int[] slot = {rand.nextInt(10), rand.nextInt(10), rand.nextInt(10), rand.nextInt(10), rand.nextInt(10)};
+        if (slot[0] ==slot[1] && slot[1] ==slot[2] && slot[2] == slot[3] && slot[3] == slot[4] && slot[4] ==slot[0] ) {
+            boxPrinter(slot);
+            System.out.println("Congratulations you won double your money");
+
+            //System.out.println("Your numbers were " + slot[0] + " " + slot[1] + " " + slot[2] + " " + slot[3] + " " + slot[4]);
         } else {
+            boxPrinter(slot);
             System.out.println("You have lost 30 coins");
-            System.out.println("Your numbers were " + slotNum1 +slotNum2 +slotNum3 +slotNum4 +slotNum5);
+            //System.out.println("Your numbers were " +  slot[0] + " " + slot[1] + " " + slot[2] + " " + slot[3] + " " + slot[4]);
         }
 
 
@@ -60,5 +84,36 @@ public class Slots {
             System.out.println("You have lost 30 coins");
             System.out.println("Your numbers were: " +slotNum1 +slotNum2 + slotNum3);
         }
+    }
+    public static void boxPrinter(int[] objects) {
+        String line = "-";
+        System.out.println(line.repeat(4 * objects.length + 1) );
+        for (int i = 0; i < objects.length; i++) {
+            if (i == 0) {
+                System.out.print("|");
+            }
+            System.out.print(" " + objects[i] + " |");
+        }
+        System.out.println();
+        System.out.println(line.repeat(4 * objects.length + 1) );
+    }
+    public static int inputChecker(Scanner scan, int min, int max) {
+
+        int brakeCheck = 0;
+        int returnInput = 100000;
+        while (brakeCheck == 0) {
+            System.out.print("Please input correctly. ");
+            while(!scan.hasNextInt()) {
+                scan.next();
+                System.out.print("Please input correctly. ");
+            }
+            returnInput = scan.nextInt();
+
+            // Modified to equals so that it works with 0 and 1
+            if (returnInput == min || returnInput == max) {
+                brakeCheck = 1;
+            }
+        }
+        return returnInput;
     }
 }
