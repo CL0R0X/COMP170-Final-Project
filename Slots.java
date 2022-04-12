@@ -8,9 +8,9 @@ public class Slots {
     public static void main(String[] args) {
         int brakeCheck = 0;
         Scanner scan = new Scanner(System.in);
-        System.out.println("Welcome to Slots");
-        System.out.println("Rules: \n Match 3 of the same numbers for slots of 3 \n Match 5 of the same numbers for slots of 5");
-        System.out.print("Would you like to bet on a Slot machine of 3 or 5 (3/5): ");
+        System.out.println("Welcome to Slots!");
+        System.out.println("Rules: \n Match 3 of the same numbers for slots of 3. \n Match 5 of the same numbers for slots of 5. ");
+        System.out.print("Would you like to bet on a Slot machine of 3 or 5 (3/5)?: ");
 
         while (!scan.hasNextInt()) {
             scan.next();
@@ -59,14 +59,12 @@ public class Slots {
     public static void rollingSlot5() {
         Random rand = new Random();
         int[] slot = {rand.nextInt(10), rand.nextInt(10), rand.nextInt(10), rand.nextInt(10), rand.nextInt(10)};
+        boxPrinter(slot);
         if (slot[0] ==slot[1] && slot[1] ==slot[2] && slot[2] == slot[3] && slot[3] == slot[4] && slot[4] ==slot[0] ) {
-            boxPrinter(slot);
-            System.out.println("Congratulations you won double your money");
-
+            System.out.println("Congratulations, you won double your money!");
             //System.out.println("Your numbers were " + slot[0] + " " + slot[1] + " " + slot[2] + " " + slot[3] + " " + slot[4]);
         } else {
-            boxPrinter(slot);
-            System.out.println("You have lost 30 coins");
+            System.out.println("You have lost your bet!");
             //System.out.println("Your numbers were " +  slot[0] + " " + slot[1] + " " + slot[2] + " " + slot[3] + " " + slot[4]);
         }
 
@@ -74,15 +72,14 @@ public class Slots {
     }
     public static void rollingSlot3() {
         Random rand = new Random();
-        int slotNum1 = rand.nextInt(10);
-        int slotNum2 = rand.nextInt(10);
-        int slotNum3 = rand.nextInt(10);
-        if (slotNum1 == slotNum2 && slotNum2 ==slotNum3 && slotNum3 ==slotNum1){
-            System.out.println("You won double your money");
-            System.out.println("Your numbers were: " +slotNum1 +slotNum2 + slotNum3);
+        int[] slot = {rand.nextInt(10), rand.nextInt(10), rand.nextInt(10)};
+        boxPrinter(slot);
+        if (slot[0] ==slot[1] && slot[1] ==slot[2] && slot[2] == slot[1]){
+            System.out.println("Congratulations, you won double your money!");
+            //System.out.println("Your numbers were: " +slotNum1 +slotNum2 + slotNum3);
         }else {
-            System.out.println("You have lost 30 coins");
-            System.out.println("Your numbers were: " +slotNum1 +slotNum2 + slotNum3);
+            System.out.println("You have lost your bet!");
+            //System.out.println("Your numbers were: " +slotNum1 +slotNum2 + slotNum3);
         }
     }
     public static void boxPrinter(int[] objects) {
