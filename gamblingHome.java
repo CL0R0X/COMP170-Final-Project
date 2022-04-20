@@ -1,4 +1,4 @@
-package com.company;
+
 import java.util.Scanner;
 
 
@@ -15,8 +15,16 @@ public class gamblingHome {
         Scanner scan = new Scanner(System.in);
         String welcome = ("Welcome to the Gambling Hub!!");
         String options ="What games do you want to play: ";
-        String choices =["Black Jack", "Dice","Roulette","Slots","Horse racing"];
-        System.out.printf("| %34s |\n| %34s |", welcome, options, );
+        String[] choices = new String[4];
+        choices[0] ="BlackJack";
+        choices[1]= "Dice";
+        choices[2] = "Roulette";
+        choices[3] = "Slots";
+        choices[4] = "Horse racing";
+        System.out.printf("| %34s |\n| %34s |", welcome, options );
+        for(int i=0 ;i <= choices.length; i++){
+            System.out.printf("| %34s |", choices[i]);
+        }
         String gamechoice  = scan.next();
         try {
             if(gamechoice.equals("Black_Jack")) {
@@ -31,7 +39,7 @@ public class gamblingHome {
                // com.company.HorseRacing.games();
             }
         } catch (Exception e) {
-            System.out.printf("| %34s |\n | %34s | ", options, choices);
+            System.out.printf("| %34s |\n | %34s | ", options);
             String gamechoices  = scan.next();
 
 
