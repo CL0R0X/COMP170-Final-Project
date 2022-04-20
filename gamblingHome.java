@@ -15,7 +15,7 @@ public class gamblingHome {
         Scanner scan = new Scanner(System.in);
         String welcome = ("Welcome to the Gambling Hub!!");
         String options ="What games do you want to play: ";
-        String[] choices = new String[4];
+        String[] choices = new String[5];
         choices[0] ="BlackJack";
         choices[1]= "Dice";
         choices[2] = "Roulette";
