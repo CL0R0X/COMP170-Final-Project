@@ -22,7 +22,7 @@ public class gamblingHome {
         choices[3] = "Slots";
         choices[4] = "Horse racing";
         System.out.printf("| %34s |\n| %34s |", welcome, options );
-        for(int i=0 ;i <= choices.length; i++){
+        for(int i=0 ;i < choices.length; i++){
             System.out.printf("| %34s |", choices[i]);
         }
         String gamechoice  = scan.next();
