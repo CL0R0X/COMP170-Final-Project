@@ -4,28 +4,31 @@ import java.util.Scanner;
 
 
 public class gamblingHome {
+     public static final int boxSize = 35;
     public static void main(String[] args) {
-        //printHome();
-        //Await user choice
-        //Once user has chosen the specific game, call upon the code of that specific game.
-        /*
-        Essentially this is a bunch of if statements in a while statement that check to see if the input
-        matches the name of one of the given games we have created.
-         */
+
+        //digitRange.scan4Num();
         Scanner scan = new Scanner(System.in);
         String welcome = ("Welcome to the Gambling Hub!!");
+        printerHelper(welcome, boxSize - welcome.length());
         String options ="What games do you want to play: ";
+        printerHelper(options, boxSize - options.length());
         String[] choices = new String[5];
-        choices[0] ="BlackJack";
+        choices[0] ="Black Jack";
         choices[1]= "Dice";
         choices[2] = "Roulette";
         choices[3] = "Slots";
         choices[4] = "Horse racing";
-        System.out.printf("| %34s |\n| %34s |", welcome, options );
-        for(int i=0 ;i < choices.length; i++){
-            System.out.printf("| %34s |", choices[i]);
+        //System.out.printf("| %34s |\n| %34s |", welcome, options );
+        for(int i=0 ;i <  choices.length; i++){
+            //System.out.printf("\n| %12s |", choices[i]);
+            printerHelper(choices[i], boxSize - choices[i].length());
         }
+        System.out.println();
         String gamechoice  = scan.next();
+
+    }
+   
         try {
             if(gamechoice.equals("Black_Jack")) {
                // com.company.blackjack.games();
@@ -45,6 +48,18 @@ public class gamblingHome {
 
         }
 
+
+    }
+ public static void printerHelper(String input, int spacesToFill) {
+        for (int i = 0; i < spacesToFill; i++) {
+            if (i % 2 == 0) {
+                input = " " + input;
+            } else {
+                input = input + " ";
+            }
+        }
+
+        System.out.println("|" + input + "|");
 
     }
     /*
