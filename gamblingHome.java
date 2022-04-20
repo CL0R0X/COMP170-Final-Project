@@ -1,4 +1,7 @@
 package com.company;
+import java.util.Scanner;
+
+
 
 public class gamblingHome {
     public static void main(String[] args) {
@@ -9,6 +12,31 @@ public class gamblingHome {
         Essentially this is a bunch of if statements in a while statement that check to see if the input
         matches the name of one of the given games we have created.
          */
+        Scanner scan = new Scanner(System.in);
+        String welcome = ("Welcome to the Gambling Hub!!");
+        String options ="What games do you want to play: ";
+        String choices =["Black Jack", "Dice","Roulette","Slots","Horse racing"];
+        System.out.printf("| %34s |\n| %34s |", welcome, options, );
+        String gamechoice  = scan.next();
+        try {
+            if(gamechoice.equals("Black_Jack")) {
+               // com.company.blackjack.games();
+            } else if (gamechoice.equals("Dice")) {
+                //com.company.diceGame.games();
+            } else if (gamechoice.equals("Roulette")) {
+               // com.company.roulette.games();
+            } else if (gamechoice.equals("Slots")) {
+               // com.company.Slots.games();
+            } else if (gamechoice.equals("Horse_Racing")) {
+               // com.company.HorseRacing.games();
+            }
+        } catch (Exception e) {
+            System.out.printf("| %34s |\n | %34s | ", options, choices);
+            String gamechoices  = scan.next();
+
+
+        }
+
 
     }
     /*
@@ -144,4 +172,4 @@ public class gamblingHome {
 }
     
     
-}
+
