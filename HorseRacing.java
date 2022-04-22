@@ -41,7 +41,7 @@ public class HorseRacing {
      * */
    public static final int horseSum = 5;
     public static final int trackLength = 10;
-    public static void main(String[] args) {
+    public static void games() {
         System.out.println("Welcome to the Horse Race!\n");
         //setting up the String array for the track.
         Random rand = new Random();
