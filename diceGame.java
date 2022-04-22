@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class diceGame {
     // Amount of "sides" for the dice.
     public static final int diceSides = 6;
-    public static void main(String[] args) {
+    public static void games() {
         Scanner console = new Scanner(System.in);
         dice(console);
     }
