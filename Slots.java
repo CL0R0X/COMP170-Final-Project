@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Slots {
 
-    public static void main(String[] args) {
+    public static void games() {
         int brakeCheck = 0;
         Scanner scan = new Scanner(System.in);
         System.out.println("Welcome to Slots!");
