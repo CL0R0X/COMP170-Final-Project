@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class blackjack {
 
-    public static void main(String[] args) {
+    public static void games() {
         Scanner console = new Scanner(System.in);
         blackjack(console);
     }
