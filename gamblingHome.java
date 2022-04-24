@@ -10,19 +10,20 @@ public class gamblingHome {
         public static void main(String[] args) {
         String welcome = ("Welcome to the Gambling Hub!!");
         printerHelper(welcome, boxSize - welcome.length());
+        whichGames(userBalance);
     }
-    public static void whichGames() { 
+    public static void whichGames(coin userBalance) {
     // ^^ initializing balance.
         Scanner scan = new Scanner(System.in);
     
         String options ="What games do you want to play: ";
         printerHelper(options, boxSize - options.length());
         String[] choices = new String[5];
-        choices[0] ="Black Jack";
+        choices[0] ="Black_Jack";
         choices[1]= "Dice";
         choices[2] = "Roulette";
         choices[3] = "Slots";
-        choices[4] = "Horse racing";
+        choices[4] = "Horse_Racing";
         //System.out.printf("| %34s |\n| %34s |", welcome, options );
         for(int i=0 ;i <  choices.length; i++){
             //System.out.printf("\n| %12s |", choices[i]);
@@ -32,21 +33,22 @@ public class gamblingHome {
         System.out.print("What game do you want to select: ");
         String gamechoice  = scan.next();
 
-        try {
+        //try {
+        while (breakcheck == 0)
             if(gamechoice.equals("Black_Jack")) {
                 com.company.blackjack.games(userBalance);
             } else if (gamechoice.equals("Dice")) {
                 com.company.diceGame.games(userBalance);
             } else if (gamechoice.equals("Roulette")) {
-                // com.company.roulette.games();
+                 com.company.roulette.games(userBalance);
             } else if (gamechoice.equals("Slots")) {
-                //com.company.Slots.games();
+                com.company.Slots.games(userBalance);
             } else if (gamechoice.equals("Horse_Racing")) {
-                com.company.horseBetting.games(userBalance);
+                com.company.HorseRacing.games(userBalance);
             }
-        } catch (Exception e) {
-            System.out.printf("| %34s |\n | %34s | ", options);
-            String gamechoices  = scan.next();
+        //} catch (Exception e) {
+            //System.out.printf("| %34s |\n | %34s | ", options);
+            //ring gamechoices  = scan.next();
 
 
         }
