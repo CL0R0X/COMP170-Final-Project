@@ -34,15 +34,15 @@ public class gamblingHome {
 
         try {
             if(gamechoice.equals("Black_Jack")) {
-                //com.company.blackjack.games(userBalance);
+                com.company.blackjack.games(userBalance);
             } else if (gamechoice.equals("Dice")) {
-               // com.company.diceGame.games(userBalance);
+                com.company.diceGame.games(userBalance);
             } else if (gamechoice.equals("Roulette")) {
                 // com.company.roulette.games();
             } else if (gamechoice.equals("Slots")) {
-                // com.company.Slots.games();
+                //com.company.Slots.games();
             } else if (gamechoice.equals("Horse_Racing")) {
-                // com.company.HorseRacing.games();
+                com.company.horseBetting.games(userBalance);
             }
         } catch (Exception e) {
             System.out.printf("| %34s |\n | %34s | ", options);
