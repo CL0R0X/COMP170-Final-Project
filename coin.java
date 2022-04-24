@@ -6,6 +6,10 @@ public class coin {
 
     public coin() {
         this.balance = 100.0;
+        if (this.balance <= 0) {
+            System.out.println("No more betting");
+            this.balance = 0;
+        }
     }
 
     public void newBal(double betWinnings) {
