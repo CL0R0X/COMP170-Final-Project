@@ -15,8 +15,9 @@ public class blackjack {
         System.out.println("Lets get your hand sorted out...");
         Random rand = new Random();
 
+        System.out.println("Your current balance is " + userBalance.getBal() + " coins");
         // Betting code here:
-        System.out.println("Please input how much you would like to bet: ");
+        System.out.print("Please input how much you would like to bet: ");
         while(!scan.hasNextInt()) {
             scan.next();
             System.out.println("That is not an integer. ");
@@ -69,7 +70,7 @@ public class blackjack {
 
         // Cycles play while the user has a valid sum.
         while (sumOfUser < 21 && endGame == false) {
-            System.out.print("Would you like to draw (1) or stay (0)? (Stay will end the session): ");
+            System.out.print("Would you like to draw (1) or stay (0)? ");
             int userAnswer = scan.nextInt();
             int brakeCheck;
             if (userAnswer == 1 || userAnswer == 0) {
@@ -97,7 +98,7 @@ public class blackjack {
             }
 
         }
-        // END GAME TALLY WOOOOO
+        // END GAME TALLY
         System.out.print("You have a hand of: ");
         for (int a = 0; a <= cardCount - 1; a++) {
             System.out.print(userHand[a]);
@@ -133,10 +134,11 @@ public class blackjack {
             //return bet. (again, does nothing)
         } else if (sumOfUser > sumOfDealer || sumOfUser == 21){
             System.out.println("YOU WIN! Congratulations!");
-            userBalance.newBal((initialBet * 2));
+            userBalance.newBal((initialBet * 1.5));
             //add bet * x amount.
         }
         System.out.println("Your new balance is " + userBalance.getBal());
+        playAgain(userBalance);
     }
     public static String cardDeck(int userCard) {
         //Declaring the card Array.
@@ -178,5 +180,9 @@ public class blackjack {
             }
         }
         return returnInput;
+    }
+
+    public static void playAgain(coin userBalance) {
+        gamblingHome.whichGames(userBalance);
     }
 }
