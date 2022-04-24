@@ -15,10 +15,8 @@ public class diceGame {
     }
     public static void dice(Scanner scan, coin userBalance) {
         System.out.println("Welcome to Dice! ");
-        System.out.println();
-
         Random roll = new Random();
-        System.out.print("How many dice will you roll? (1-3)");
+        System.out.print("How many dice will you roll? (1-3) ");
         int userInput = 0;
         //The Testing Portion- Making sure the input is always correct.
         //The first while statement confirms it is an integer.
@@ -41,28 +39,33 @@ public class diceGame {
 
         //Betting part of the code.
 
-        System.out.println("Please input how much you would like to bet: ");
+        System.out.println("Your current balance is " + userBalance.getBal() + " coins");
+        System.out.print("Please input how much you would like to bet: ");
         while(!scan.hasNextInt()) {
             scan.next();
             System.out.println("That is not an integer. ");
         }
         int initialBet = scan.nextInt();
 
-        if (initialBet <= userBalance.getBal()) {
-            System.out.println(userBalance.getBal());
-        } else {
+        if (initialBet > userBalance.getBal()) {
+
             initialBet = inputChecker(scan, 1, (int) userBalance.getBal());
+        } else {
+            System.out.println("You did not bet over your current balance you may continue gambling");
+
         }
 
-
+        System.out.println("--------------------------------------------------------------------------");
+        System.out.println("You chose " + userInput + " die to roll, which means that \nyou'll have " + (diceSides * userInput) + " different outputs." );
+        System.out.println("--------------------------------------------------------------------------");
 
         // User's guess on what it lands on.
-        System.out.print("What do you think it will land on? ");
+        System.out.print("What do you think the sum of dice is? ");
         int guess = scan.nextInt();
 
         //time to start rolling!
         int diceRollResult = 0;
-        System.out.println("You chose " + userInput + " die to roll, which means \nyou'll have " + (diceSides * userInput) + " different outputs." );
+
         System.out.println("Its time to roll!");
 
         System.out.println();// (spacer)
@@ -70,24 +73,25 @@ public class diceGame {
         // Rolls the dice!
         diceRollResult = roll.nextInt((diceSides * userInput) - 1) + 1;
         System.out.println("Your result = " + diceRollResult);
+
         if (diceRollResult == guess && userInput == 1) {
             System.out.println("You win!");
             userBalance.newBal((initialBet * 1.5));
             //win bet amount * 1.5
         } else if (diceRollResult == guess && userInput == 2) {
             System.out.println("You win!");
-            userBalance.newBal((initialBet * 2.5));
-            //win bet amount * 2.5
+            userBalance.newBal((initialBet * 2.0));
+            //win bet amount * 2.2
         } else if (diceRollResult == guess && userInput == 3) {
             System.out.println("You win!");
-            userBalance.newBal((initialBet * 3.5));
-            //win bet amount * 3.5
+            userBalance.newBal((initialBet * 2.5));
+            //win bet amount * 2.5
         } else {
-            System.out.println("No dice!");
+            System.out.println("You lost");
             userBalance.newBal((initialBet * -1));
         }
-        System.out.println(userBalance.getBal());
-        playAgain();
+        System.out.println("Your current balance is " +userBalance.getBal() + " coins");
+        playAgain(userBalance);
     }
 
     public static int inputChecker(Scanner scan, int min, int max) {
@@ -106,7 +110,7 @@ public class diceGame {
         }
         return returnInput;
     }
-    public static void playAgain() {
-        com.company.gamblingHome.whichGames();
+    public static void playAgain(coin userbalance) {
+        com.company.gamblingHome.whichGames(userbalance);
     }
 }
