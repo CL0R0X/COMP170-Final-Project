@@ -7,12 +7,14 @@ import java.util.Scanner;
 public class gamblingHome {
     public static coin userBalance = new coin();
     public static final int boxSize = 35;
-    public static void main(String[] args) {
-
-        // ^^ initializing balance.
-        Scanner scan = new Scanner(System.in);
+        public static void main(String[] args) {
         String welcome = ("Welcome to the Gambling Hub!!");
         printerHelper(welcome, boxSize - welcome.length());
+    }
+    public static void whichGames() { 
+    // ^^ initializing balance.
+        Scanner scan = new Scanner(System.in);
+    
         String options ="What games do you want to play: ";
         printerHelper(options, boxSize - options.length());
         String[] choices = new String[5];
@@ -27,27 +29,27 @@ public class gamblingHome {
             printerHelper(choices[i], boxSize - choices[i].length());
         }
         System.out.println();
+        System.out.print("What game do you want to select: ");
         String gamechoice  = scan.next();
 
         try {
-        if(gamechoice.equals("Black_Jack")) {
-            //com.company.blackjack.games(userBalance);
-        } else if (gamechoice.equals("Dice")) {
-            com.company.diceGame.games(userBalance);
-        } else if (gamechoice.equals("Roulette")) {
-            // com.company.roulette.games();
-        } else if (gamechoice.equals("Slots")) {
-            // com.company.Slots.games();
-        } else if (gamechoice.equals("Horse_Racing")) {
-            // com.company.HorseRacing.games();
+            if(gamechoice.equals("Black_Jack")) {
+                //com.company.blackjack.games(userBalance);
+            } else if (gamechoice.equals("Dice")) {
+               // com.company.diceGame.games(userBalance);
+            } else if (gamechoice.equals("Roulette")) {
+                // com.company.roulette.games();
+            } else if (gamechoice.equals("Slots")) {
+                // com.company.Slots.games();
+            } else if (gamechoice.equals("Horse_Racing")) {
+                // com.company.HorseRacing.games();
+            }
+        } catch (Exception e) {
+            System.out.printf("| %34s |\n | %34s | ", options);
+            String gamechoices  = scan.next();
+
+
         }
-    } catch (Exception e) {
-        System.out.printf("| %34s |\n | %34s | ", options);
-        String gamechoices  = scan.next();
-
-
-    }
-
 
 }
     public static void printerHelper(String input, int spacesToFill) {
