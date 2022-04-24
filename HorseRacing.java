@@ -69,6 +69,7 @@ public class horseBetting {
             userBalance.newBal((initialBet * -1));
 
         }
+        playagain();
     }
     public static String[] horseForward(int place, int[] horsePlaces, String[] raceTrack) {
         // for ease of typing
@@ -113,5 +114,9 @@ public class horseBetting {
         return returnInt;
 
 
+    }
+    
+    public static void playAgain() {
+        com.company.gamblingHome.whichGames();
     }
 }
