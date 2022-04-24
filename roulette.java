@@ -39,15 +39,15 @@ public class roulette {
         if (rolledNumber %2 == 0 && color == 0) {
             System.out.println("You rolled a "+rolledNumber);
             System.out.printf("You have won, double your coins");
-            reward(rolledNumber);
+            
         } else if ( rolledNumber %2 == 1 && color == 1) {
             System.out.println("You rolled a "+rolledNumber);
             System.out.printf("You have won, double your coins");
-            reward(rolledNumber);
+            
         }else if( (rolledNumber == 0 || rolledNumber == 36 )&& color == 2) {
             System.out.printf("You have won, triple your coins");
             System.out.println("You rolled a "+rolledNumber);
-            reward(rolledNumber);
+            
         } else {
             System.out.print("Better luck next time ");
             System.out.println(rolledNumber);
@@ -58,15 +58,13 @@ public class roulette {
         if(guess == rolledNumber) {
             System.out.printf("You have guessed " + guess + " and rolled " + rolledNumber + " ");
             System.out.println ("You won 5 times your money");
-            reward(rolledNumber);
+            
         } else {
             System.out.printf("You have guessed " + guess + " and rolled " + rolledNumber);
             System.out.println("Better luck Next Time");
         }
     }
 
-    public static void reward( int rolledNumber) {
-
-    }
+    
 
 }
