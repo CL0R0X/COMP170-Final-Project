@@ -115,20 +115,20 @@ public class Slots {
     public static int[] rig5Value() {
         Random rand = new Random();
         int riggingSlots = rand.nextInt(2);
-
-        if (riggingSlots == 0) {
-            int[] slot = {rand.nextInt(10), rand.nextInt(10), rand.nextInt(10), rand.nextInt(10), rand.nextInt(10)};
+        //There is a random chance for the user to get a one or zero at which decides the console output of have a rigged slot output
+        if (riggingSlots == 0) { //activates pure random integer value
+            int[] slot = {rand.nextInt(10), rand.nextInt(10), rand.nextInt(10), rand.nextInt(10), rand.nextInt(10)}; 
             return slot;
         } else {
             int[] slot = new int[5];
-            slot[0] = rand.nextInt(10);
-            if (slot[0] >= 5) {
+            slot[0] = rand.nextInt(10); // the first value is random num generator
+            if (slot[0] >= 5) { // the second value is if the first value is greater than 5 or less than 5, do random generator based on less than 5 or greater 
                 slot[1] = rand.nextInt(6);
                 slot[1] = slot[1] + 5;
             } else {
                 slot[1] = rand.nextInt(5);
             }
-            if (slot[1] > 6) {
+            if (slot[1] > 6) { // based on the second value do rng on set limits of greaeter than 6 or between 6 and 3 less than 3. then those limits wouold determine the how the rng would act between the limtsa
                 slot[2] = rand.nextInt(4);
                 slot[2] = slot[2] + 7;
             } else if (slot[1] >= 3 && slot[1] <= 6) {
@@ -137,7 +137,7 @@ public class Slots {
             } else {
                 slot[2] = rand.nextInt(3);
             }
-            if (slot[2] > 6) {
+            if (slot[2] > 6) { // this is the same method as before but the number values are changed
                 slot[3] = rand.nextInt(4);
                 slot[3] = slot[2] + 7;
             } else if (slot[2] >= 3 && slot[2] <= 6) {
