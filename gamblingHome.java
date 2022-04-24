@@ -1,13 +1,15 @@
+package com.company;
 
 import java.util.Scanner;
 
 
 
 public class gamblingHome {
-     public static final int boxSize = 35;
+    public static coin userBalance = new coin();
+    public static final int boxSize = 35;
     public static void main(String[] args) {
 
-        //digitRange.scan4Num();
+        // ^^ initializing balance.
         Scanner scan = new Scanner(System.in);
         String welcome = ("Welcome to the Gambling Hub!!");
         printerHelper(welcome, boxSize - welcome.length());
@@ -27,30 +29,28 @@ public class gamblingHome {
         System.out.println();
         String gamechoice  = scan.next();
 
-    }
-   
         try {
-            if(gamechoice.equals("Black_Jack")) {
-               com.company.blackjack.games();
-            } else if (gamechoice.equals("Dice")) {
-               com.company.diceGame.games();
-            } else if (gamechoice.equals("Roulette")) {
-               com.company.roulette.games();
-            } else if (gamechoice.equals("Slots")) {
-               com.company.Slots.games();
-            } else if (gamechoice.equals("Horse_Racing")) {
-               com.company.HorseRacing.games();
-            }
-        } catch (Exception e) {
-            System.out.printf("| %34s |\n | %34s | ", options);
-            String gamechoices  = scan.next();
-
-
+        if(gamechoice.equals("Black_Jack")) {
+            //com.company.blackjack.games(userBalance);
+        } else if (gamechoice.equals("Dice")) {
+            com.company.diceGame.games(userBalance);
+        } else if (gamechoice.equals("Roulette")) {
+            // com.company.roulette.games();
+        } else if (gamechoice.equals("Slots")) {
+            // com.company.Slots.games();
+        } else if (gamechoice.equals("Horse_Racing")) {
+            // com.company.HorseRacing.games();
         }
+    } catch (Exception e) {
+        System.out.printf("| %34s |\n | %34s | ", options);
+        String gamechoices  = scan.next();
 
 
     }
- public static void printerHelper(String input, int spacesToFill) {
+
+
+}
+    public static void printerHelper(String input, int spacesToFill) {
         for (int i = 0; i < spacesToFill; i++) {
             if (i % 2 == 0) {
                 input = " " + input;
@@ -77,7 +77,7 @@ public class gamblingHome {
     /*
     gameSelection() {
     create a System print of "Would you want to play: BlackJack/n , Dice /n, Roulette /n, slots,/n  Horse Racing"
-    assign variable to the response of the code above     
+    assign variable to the response of the code above
     use a if else statement to select which game to pick/load the code for the game
     It willl be linked with the printHome() method for producing the size of lines
     }
@@ -91,7 +91,6 @@ public class gamblingHome {
         (card values defined and stored)
         Ask for user's bet out of their current balance.
         Deal out two of these cards randomly using a new Random.
-
         User chooses whether to draw another random card based on their current sum.
         if (sum > 21) {
             user loses.
@@ -114,12 +113,12 @@ public class gamblingHome {
             printHome();
         }
     */
-    
-    /* 
+
+    /*
     Slots() {
     slots game is a game where you need to match the 3 numbers for the user to get a reward
     In order to get the 3 random numbers necessary for the slots game to function
-    you would use a randomInt value and set it to 11 = 
+    you would use a randomInt value and set it to 11 =
     num1 =randInt(11);
     print = user gets num1
     num2 =randInt(11);
@@ -130,8 +129,8 @@ public class gamblingHome {
     user gets rewards if it gets equal
      }
     }
-    */ 
-    
+    */
+
     /*
     diceGame() {
     This game is very simple- the user will guess the number the dice rolls. Before this, the user decides how many dice they want to roll.
@@ -150,49 +149,47 @@ public class gamblingHome {
     } else {
         user loses, balance = balance - bet
     }
-    
+
     */
-        /* 
+        /*
     roulette(){
     The pockets of the roulette wheel are numbered from 0 to 36. In number ranges from 1 to 10 and 19 to 28, odd numbers are red and even are black.
     Green tiles are 0 and 36
     allow the user to pick whether he wants to bet on tiles or tiles and number or numbers alone
-    create a function if/else to determine whether the function is odd or even 
+    create a function if/else to determine whether the function is odd or even
     if outcome odd then user is on the black tile and if user bet black tile reward is 1.5times
     if outcome even then user is on the red tile and if user bet red tile reward is 1.5times
     if outcome is green tile then randint lands on 0 or 36 then reward is 3times
     if outcome is guessed both number and tile then reward is 5 times
     if user bets on green tile and number then reward is 10 times
-    
+
     }
     */
-    
+
     /*
     horseRace() {
     There are a series of 5 horses(0):
     &---------
     0---------
     $---------
-    
-    The first variable & in is called an num1 
+
+    The first variable & in is called an num1
     have a random int is equal to 1 then the value moves
     for example:
     -&--------
     0---------
     $---------
-    
+
     the mechanism for the horses to move is similar to:
     int temp = num1;
     num1 = num2;
     num2 = temp;
     }
-    
+
     the track would last for 10 -
     and the loop is run by a while loop
     while( num != 1) {}
     reward for betting on first one to come to end is 5 times
     */
 }
-    
-    
 
