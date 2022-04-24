@@ -1,11 +1,11 @@
-//package com.company;
+package com.company;
 
 import java.util.Random;
 import java.util.Scanner;
 
 public class Slots {
 
-    public static void games() {
+    public static void games(coin userBalance) {
         int brakeCheck = 0;
         Scanner scan = new Scanner(System.in);
         System.out.println("Welcome to Slots!");
@@ -35,50 +35,40 @@ public class Slots {
         } else if (brakeCheck == 0) {
             coins = inputChecker(scan,30,91834809);
         }
-        /*
-        boolean userBet = false;
 
-        if (coins == 30) {
-            userBet = true;
-        }
-        while( userBet == false ) {
-            System.out.print("Insert 30 coins to begin playing: ");
-            coins= scan.nextInt();
-            if (coins == 30) {
-                userBet = true;
-            }
-        } */
         if (whichSlot == 3) {
-            rollingSlot3();
+            rollingSlot3(userBalance, coins);
         } else if (whichSlot == 5) {
-            rollingSlot5();
+            rollingSlot5(userBalance, coins);
         }
 
     }
 
-    public static void rollingSlot5() {
+    public static void rollingSlot5(coin userBalance, int coins) {
         int[] slot = rig5Value();
         boxPrinter(slot);
         if (slot[0] ==slot[1] && slot[1] ==slot[2] && slot[2] == slot[3] && slot[3] == slot[4] && slot[4] ==slot[0] ) {
-            System.out.println("Congratulations, you won double your money!");
-            //System.out.println("Your numbers were " + slot[0] + " " + slot[1] + " " + slot[2] + " " + slot[3] + " " + slot[4]);
+            System.out.println("Congratulations, you won doubled your money!");
+            userBalance.newBal((double) coins *2);
         } else {
             System.out.println("You have lost your bet!");
-            //System.out.println("Your numbers were " +  slot[0] + " " + slot[1] + " " + slot[2] + " " + slot[3] + " " + slot[4]);
+            userBalance.newBal((double) coins *-1);
         }
-
-
+        System.out.println("Your current balance is " + userBalance.getBal() + " coins");
+        playAgain(userBalance);
     }
-    public static void rollingSlot3() {
+    public static void rollingSlot3(coin userBalance, int coins ) {
         int[] slot = rig3slot();
         boxPrinter(slot);
         if (slot[0] ==slot[1] && slot[1] ==slot[2] && slot[2] == slot[1]){
-            System.out.println("Congratulations, you won double your money!");
-            //System.out.println("Your numbers were: " +slotNum1 +slotNum2 + slotNum3);
+            System.out.println("Congratulations, you won doubled your money!");
+            userBalance.newBal((double) coins *2);
         }else {
-            System.out.println("You have lost your bet!");
-            //System.out.println("Your numbers were: " +slotNum1 +slotNum2 + slotNum3);
+            System.out.println("You have lost your 30 coins!");
+            userBalance.newBal((double) coins *- 1);
         }
+        System.out.println("Your current balance is " + userBalance.getBal() + " coins");
+        playAgain(userBalance);
     }
     public static void boxPrinter(int[] objects) {
         String line = "-";
@@ -187,4 +177,7 @@ public class Slots {
             return slot;
     }
 }
+        public static void playAgain( coin userBalance) {
+            gamblingHome.whichGames(userBalance);
+        }
 }
