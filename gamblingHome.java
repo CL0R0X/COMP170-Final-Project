@@ -7,53 +7,60 @@ import java.util.Scanner;
 public class gamblingHome {
     public static coin userBalance = new coin();
     public static final int boxSize = 35;
-        public static void main(String[] args) {
+    public static void main(String[] args) {
         String welcome = ("Welcome to the Gambling Hub!!");
         printerHelper(welcome, boxSize - welcome.length());
         whichGames(userBalance);
     }
     public static void whichGames(coin userBalance) {
-    // ^^ initializing balance.
+        // ^^ initializing balance.
         Scanner scan = new Scanner(System.in);
-    
-        String options ="What games do you want to play: ";
+
+        String options = "What games do you want to play: ";
         printerHelper(options, boxSize - options.length());
         String[] choices = new String[5];
-        choices[0] ="Black_Jack";
-        choices[1]= "Dice";
+        choices[0] = "Black_Jack";
+        choices[1] = "Dice";
         choices[2] = "Roulette";
         choices[3] = "Slots";
         choices[4] = "Horse_Racing";
         //System.out.printf("| %34s |\n| %34s |", welcome, options );
-        for(int i=0 ;i <  choices.length; i++){
+        for (int i = 0; i < choices.length; i++) {
             //System.out.printf("\n| %12s |", choices[i]);
             printerHelper(choices[i], boxSize - choices[i].length());
         }
         System.out.println();
         System.out.print("What game do you want to select: ");
-        String gamechoice  = scan.next();
+        String gameChoice = scan.next();
 
         //try {
-        while (breakcheck == 0)
-            if(gamechoice.equals("Black_Jack")) {
+        int breakcheck = 0;
+        while (breakcheck == 0) {
+            if (gameChoice.equals("Black_Jack")) {
                 com.company.blackjack.games(userBalance);
-            } else if (gamechoice.equals("Dice")) {
+                breakcheck++;
+            } else if (gameChoice.equals("Dice")) {
                 com.company.diceGame.games(userBalance);
-            } else if (gamechoice.equals("Roulette")) {
-                 com.company.roulette.games(userBalance);
-            } else if (gamechoice.equals("Slots")) {
+                breakcheck++;
+            } else if (gameChoice.equals("Roulette")) {
+                com.company.roulette.games(userBalance);
+                breakcheck++;
+            } else if (gameChoice.equals("Slots")) {
                 com.company.Slots.games(userBalance);
-            } else if (gamechoice.equals("Horse_Racing")) {
-                com.company.HorseRacing.games(userBalance);
+                breakcheck++;
+            } else if (gameChoice.equals("Horse_Racing")) {
+                com.company.horseBetting.games(userBalance);
             }
-        //} catch (Exception e) {
-            //System.out.printf("| %34s |\n | %34s | ", options);
-            //ring gamechoices  = scan.next();
-
-
+            System.out.print("What game do you want to select: ");
+            gameChoice = scan.next();
         }
+        //} catch (Exception e) {
+        //System.out.printf("| %34s |\n | %34s | ", options);
+        //ring gamechoices  = scan.next();
 
-}
+
+    }
+
     public static void printerHelper(String input, int spacesToFill) {
         for (int i = 0; i < spacesToFill; i++) {
             if (i % 2 == 0) {
@@ -83,7 +90,7 @@ public class gamblingHome {
     create a System print of "Would you want to play: BlackJack/n , Dice /n, Roulette /n, slots,/n  Horse Racing"
     assign variable to the response of the code above
     use a if else statement to select which game to pick/load the code for the game
-    It willl be linked with the printHome() method for producing the size of lines
+    It will be linked with the printHome() method for producing the size of lines
     }
     */
 
@@ -153,7 +160,6 @@ public class gamblingHome {
     } else {
         user loses, balance = balance - bet
     }
-
     */
         /*
     roulette(){
@@ -166,7 +172,6 @@ public class gamblingHome {
     if outcome is green tile then randint lands on 0 or 36 then reward is 3times
     if outcome is guessed both number and tile then reward is 5 times
     if user bets on green tile and number then reward is 10 times
-
     }
     */
 
@@ -176,24 +181,20 @@ public class gamblingHome {
     &---------
     0---------
     $---------
-
     The first variable & in is called an num1
     have a random int is equal to 1 then the value moves
     for example:
     -&--------
     0---------
     $---------
-
     the mechanism for the horses to move is similar to:
     int temp = num1;
     num1 = num2;
     num2 = temp;
     }
-
     the track would last for 10 -
     and the loop is run by a while loop
     while( num != 1) {}
     reward for betting on first one to come to end is 5 times
     */
 }
-
