@@ -1,54 +1,21 @@
+package com.company;
 
 import java.util.Random;
+import java.util.Scanner;
 
-
-public class HorseRacing {
-    /*
-     *  First have the console print out information about how Horse race willl work
-     *  let the user pick/determine the amount of money they want to bet
-     *
-     *
-     *  Have the console next print out 4 different track:
-     * --------------------
-     * track 1
-     * --------------------
-     * track 2
-     * --------------------
-     * track 3
-     * -------------------
-     * track 4
-     *
-     * have those 4 tracks listed in console
-     * let the user pick which of the 4 tracks to bet on
-     *
-     * after the user picks which track he wants to bet on
-     * save that into a variable
-     * next send that variable into another method
-     *
-     * in order for the tracks to move to the end
-     * create a random int with max of 1, there can be only 2 options 0 or 1
-     * if the random integer hits a 1 that object would switch places with -
-     * do a while loop for the track to happen
-     * the first track that reaches to " "
-     * record that track and send it to the other method
-     * about which track the user had beted on
-     *
-     * that method will receive 2 different values
-     * which determines if the user wins or loses
-     * using a if else statements
-     *
-     *
-     * */
-   public static final int horseSum = 5;
+public class horseBetting {
+    public static final int horseSum = 5;
     public static final int trackLength = 10;
-    public static void games() {
+    public static void games(coin userBalance) {
+        Scanner scan = new Scanner(System.in);
         System.out.println("Welcome to the Horse Race!\n");
         //setting up the String array for the track.
         Random rand = new Random();
 
         String[] track = new String[horseSum];
         int[] horsePlaces =  new int[horseSum];
-        //This has to be a separate block of code from the other prints for now.
+
+        //This has to be a separate block of code from the other prints- its initializing the array.
         for (int j = 0; j < horseSum; j++) {
             track[j] = "O";
             for (int i = 0; i < trackLength - 1; i++) {
@@ -56,7 +23,28 @@ public class HorseRacing {
             }
             System.out.println("Horse #" + (j + 1) + ": " + track[j]);
         }
-        // Time to run the race!
+        // Collecting the bet:
+
+
+
+        System.out.println("Please input how much you would like to bet. ");
+        System.out.println("Current Balance is " + userBalance.getBal() + ": ");
+        int initialBet = fetchThis(scan);
+        if (initialBet <= userBalance.getBal()) {
+
+        } else {
+            initialBet = inputChecker(scan, 1, (int) userBalance.getBal());
+        }
+
+        System.out.println("What place are you betting on? (1 - " + horseSum + "): ");
+        int userPlace = fetchThis(scan);
+        if (!(userPlace <= horseSum) && !(userPlace > 0)) {
+            userPlace = inputChecker(scan, 0, horseSum + 1);
+        }
+
+
+
+    // Time to run the race!
         int weHaveAWinner = 0;
         int winnerPlace = 0;
         while (weHaveAWinner == 0) {
@@ -66,25 +54,23 @@ public class HorseRacing {
             horsePlaces[boostPlace]++;
             if (horsePlaces[boostPlace] == trackLength) {
                 weHaveAWinner = 1;
-                winnerPlace = boostPlace;
+                winnerPlace = boostPlace  + 1;
             }
             System.out.println();
         }
+        System.out.println("The Winner is Horse #" + (winnerPlace) + "!!!" );
 
-        System.out.println("The Winner is Horse #" + (winnerPlace + 1) + "!!!" );
+        // Lets see if they won....
+        if (userPlace == winnerPlace) {
+            System.out.println("You win!!!");
+            userBalance.newBal((initialBet * (0.9 * horseSum)));
+        } else {
+            System.out.println("Your horse did not win :(");
+            userBalance.newBal((initialBet * -1));
 
-
-
+        }
     }
     public static String[] horseForward(int place, int[] horsePlaces, String[] raceTrack) {
-        /*
-        for (int j = 0; j < horseSum; j++) {
-            //track[j] = "O";
-            for (int i = 0; i < trackLength - 1; i++) {
-                //track[j] += "-";
-            }
-            System.out.println("Horse #" + (j + 1) + ": " + track[j]);
-        } */
         // for ease of typing
         String returning = raceTrack[place];
         String line = "-";
@@ -94,10 +80,38 @@ public class HorseRacing {
         raceTrack[place] = returning;
         return raceTrack;
     }
-
     public static void printTrack(String[] track) {
         for (int i = 0; i < horseSum; i++) {
             System.out.println("Horse #" + (i + 1) + ": " + track[i]);
         }
+    }
+
+    public static int inputChecker(Scanner scan, int min, int max) {
+        int brakeCheck = 0;
+        int returnInput = 0;
+        while (brakeCheck == 0) {
+            System.out.print("That is not a proper input.");
+            while(!scan.hasNextInt()) {
+                scan.next();
+                System.out.print("That is not a proper input.");
+            }
+            returnInput = scan.nextInt();
+            if (returnInput > min && returnInput < max) {
+                brakeCheck = 1;
+            }
+        }
+        return returnInput;
+    }
+
+    public static int fetchThis(Scanner scan) {
+        int input;
+        while(!scan.hasNextInt()) {
+            scan.next();
+            System.out.println("That is not an integer. ");
+        }
+        int returnInt = scan.nextInt();
+        return returnInt;
+
+
     }
 }
