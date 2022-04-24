@@ -87,6 +87,7 @@ public class diceGame {
             userBalance.newBal((initialBet * -1));
         }
         System.out.println(userBalance.getBal());
+        playAgain();
     }
 
     public static int inputChecker(Scanner scan, int min, int max) {
@@ -104,5 +105,8 @@ public class diceGame {
             }
         }
         return returnInput;
+    }
+    public static void playAgain() {
+        com.company.gamblingHome.whichGames();
     }
 }
