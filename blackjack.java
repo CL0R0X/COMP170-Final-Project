@@ -5,23 +5,30 @@ import java.util.Scanner;
 
 public class blackjack {
 
-    public static void games() {
+    public static void games(coin userBalance) {
         Scanner console = new Scanner(System.in);
-        blackjack(console);
+        blackjack(console, userBalance);
     }
-    public static void blackjack(Scanner scan) {
+    public static void blackjack(Scanner scan, coin userBalance) {
         System.out.println("Welcome to Blackjack!");
         System.out.println();
         System.out.println("Lets get your hand sorted out...");
         Random rand = new Random();
 
-        /*
+        // Betting code here:
+        System.out.println("Please input how much you would like to bet: ");
+        while(!scan.hasNextInt()) {
+            scan.next();
+            System.out.println("That is not an integer. ");
+        }
+        int initialBet = scan.nextInt();
 
+        if (initialBet <= userBalance.getBal()) {
+            System.out.println(userBalance.getBal());
+        } else {
+            initialBet = inputChecker(scan, 1, (int) userBalance.getBal());
+        }
 
-        BET CODE WILL BE HERE
-
-
-         */
 
         /*
         MAKING THE DEALER'S HAND
@@ -114,19 +121,22 @@ public class blackjack {
         //Now for checks
         if (sumOfUser > 21) {
             System.out.println("You bust!");
-            //deduct bet.
+            userBalance.newBal((initialBet * -1));
         } else if (sumOfDealer > 21) {
             System.out.println("Dealer has bust, here's your money.");
-            //return bet.
+            //return bet. (does nothing)
         } else if (sumOfUser < sumOfDealer) {
             System.out.println("You have a smaller hand. You lose.");
+            userBalance.newBal((initialBet * -1));
         } else if (sumOfUser == sumOfDealer) {
             System.out.println("You and the Dealer tied!");
-            //return bet.
+            //return bet. (again, does nothing)
         } else if (sumOfUser > sumOfDealer || sumOfUser == 21){
             System.out.println("YOU WIN! Congratulations!");
+            userBalance.newBal((initialBet * 2));
             //add bet * x amount.
         }
+        System.out.println("Your new balance is " + userBalance.getBal());
     }
     public static String cardDeck(int userCard) {
         //Declaring the card Array.
