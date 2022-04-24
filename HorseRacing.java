@@ -3,7 +3,7 @@ package com.company;
 import java.util.Random;
 import java.util.Scanner;
 
-public class horseBetting {
+public class HorseRacing {
     public static final int horseSum = 5;
     public static final int trackLength = 10;
     public static void games(coin userBalance) {
@@ -25,10 +25,11 @@ public class horseBetting {
         }
         // Collecting the bet:
 
-
-
-        System.out.println("Please input how much you would like to bet. ");
         System.out.println("Current Balance is " + userBalance.getBal() + ": ");
+
+
+        System.out.print("Please input how much you would like to bet. ");
+
         int initialBet = fetchThis(scan);
         if (initialBet <= userBalance.getBal()) {
 
@@ -36,7 +37,7 @@ public class horseBetting {
             initialBet = inputChecker(scan, 1, (int) userBalance.getBal());
         }
 
-        System.out.println("What place are you betting on? (1 - " + horseSum + "): ");
+        System.out.print("What place are you betting on? (1 - " + horseSum + "): ");
         int userPlace = fetchThis(scan);
         if (!(userPlace <= horseSum) && !(userPlace > 0)) {
             userPlace = inputChecker(scan, 0, horseSum + 1);
@@ -56,6 +57,7 @@ public class horseBetting {
                 weHaveAWinner = 1;
                 winnerPlace = boostPlace  + 1;
             }
+            
             System.out.println();
         }
         System.out.println("The Winner is Horse #" + (winnerPlace) + "!!!" );
@@ -69,7 +71,8 @@ public class horseBetting {
             userBalance.newBal((initialBet * -1));
 
         }
-        playAgain();
+        System.out.println("Current Balance is " + userBalance.getBal() + ": ");
+        playAgain(userBalance);
     }
     public static String[] horseForward(int place, int[] horsePlaces, String[] raceTrack) {
         // for ease of typing
@@ -116,8 +119,9 @@ public class horseBetting {
 
     }
     
-    public static void playAgain() {
-        com.company.gamblingHome.whichGames();
+    public static void playAgain(coin userBalance) {
+
+        com.company.gamblingHome.whichGames(userBalance);
     }
 }
 
