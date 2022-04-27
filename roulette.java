@@ -127,8 +127,9 @@ public class roulette {
                 userBalance.newBal((initialBet * -1));
             }
             System.out.println("Your current balance is " + userBalance.getBal() + " coins");
-            playAgain(userBalance);
+            
         }
+        playAgain(userBalance);
 
 
     }
