@@ -25,7 +25,7 @@ public class roulette {
         int coins = scan.nextInt();
 
         if (coins <= userBalance.getBal()) {
-            System.out.println(userBalance.getBal());
+            System.out.println("You may continue to gamble");
         } else {
             coins = inputChecker(scan, 1, (int) userBalance.getBal());
         }
