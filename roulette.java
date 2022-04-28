@@ -15,7 +15,7 @@ public class roulette {
 
         System.out.println("Your current balance is " + userBalance.getBal() + " coins");
         int rolledScore = rand.nextInt(36);
-        System.out.println(rolledScore);
+       
         System.out.print("How many coins do you want to bet? ");
 
         while(!scan.hasNextInt()) {
