@@ -1,5 +1,5 @@
 # COMP170-Final-Project
-Currently Making a series of Gambling games on Java
+This is a series of Gambling games using the code Java
 Games:
 Horse betting,
 Dice,
