@@ -49,7 +49,7 @@ public class gamblingHome {
                 com.company.Slots.games(userBalance);
                 breakcheck++;
             } else if (gameChoice.equals("Horse_Racing")) {
-                com.company.horseBetting.games(userBalance);
+                com.company.HorseRacing.games(userBalance);
             }
             System.out.print("What game do you want to select: ");
             gameChoice = scan.next();
